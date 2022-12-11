@@ -15,4 +15,9 @@ function App() {
   );
 }
 
+
+//use CI=true npm test CI=true npm run build in terminal to test coverage******
+
+
+
 export default App;
