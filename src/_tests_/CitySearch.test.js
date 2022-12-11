@@ -1,14 +1,14 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import CitySearch from '../CitySearch';
-import { mockData } from "../mock-data";
-import { extractLocations } from "../api";
+import { mockData } from '../mock-data';
+import { extractLocations } from '../api';
 
 describe ('<CitySearch/>',()=>{
 
     let locations, CitySearchWrapper;
     beforeAll(() => {
-    //   locations = extractLocations(mockData);
+      locations = extractLocations(mockData);
       CitySearchWrapper = shallow(<CitySearch locations={locations} />);
     });
 
@@ -36,6 +36,7 @@ describe ('<CitySearch/>',()=>{
 
     test('render list of suggestions correctly', () => {
         const locations = extractLocations(mockData);
+        const CitySearchWrapper = shallow(<CitySearch />);
         CitySearchWrapper.setState({ suggestions: locations });
         const suggestions = CitySearchWrapper.state('suggestions');
         expect(CitySearchWrapper.find('.suggestions li')).toHaveLength(suggestions.length + 1);
@@ -44,6 +45,25 @@ describe ('<CitySearch/>',()=>{
         }
       });
 
+    test('suggestion list match the query when changed', () => {
+        CitySearchWrapper.setState({ query: '', suggestions: [] });
+        CitySearchWrapper.find(".city").simulate("change", {
+          target: { value: "Berlin" },
+        });
+        const query = CitySearchWrapper.state("query");
+        const filteredLocations = locations.filter((location) => {
+          return location.toUpperCase().indexOf(query.toUpperCase()) > -1;
+        });
+        expect(CitySearchWrapper.state("suggestions")).toEqual(filteredLocations);
+        console.log(filteredLocations); //testing to make sure it works
+      });
       
+    test("selecting a suggestion should change query state", () => {
+        CitySearchWrapper.setState({
+          query: 'Berlin'  });
+        const suggestions = CitySearchWrapper.state('suggestions');
+        CitySearchWrapper.find('.suggestions li').at(0).simulate('click');
+        expect(CitySearchWrapper.state("query")).toBe(suggestions[0]);
+      });
 
 })
