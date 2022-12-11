@@ -105,7 +105,7 @@ return new Promise((resolve, reject) => {
   });
 }
 
-module.exports.getCalenderEvents = event =>{
+module.exports.getCalenderEvents = event => {
   const oAuth2Client = new google.auth.OAuth2(
     client_id,
     client_secret,
