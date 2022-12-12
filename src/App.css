@@ -48,20 +48,22 @@
 }
 
 ul {
+  display:flex;
   padding: 0;
   list-style: none;
+  align-items: left;
 }
 
 p {
   margin: 5px 0;
 }
 
-.display-none {
+/* .display-none {
   display: none;
 }
 .showSuggestions {
   display: block;
-}
+} */
 
 input[type="text"],
 input[type="number"] {
