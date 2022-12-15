@@ -47,7 +47,7 @@ module.exports.getAuthURL = async () => {
     statusCode: 200,
     headers: {
       "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Origin":'https://jchasehuskey.github.io/meetup/'
+      "Access-Control-Allow-Origin":'https://jchasehuskey.github.io/'
     },
     body: JSON.stringify({
       authUrl: authUrl,
@@ -82,7 +82,7 @@ return new Promise((resolve, reject) => {
       statusCode: 200,
       headers: {
         "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Origin":'https://jchasehuskey.github.io/meetup/'
+        "Access-Control-Allow-Origin":'https://jchasehuskey.github.io/'
         
       },
       body: JSON.stringify(token),
@@ -133,7 +133,7 @@ module.exports.getCalenderEvents = event => {
       statusCode: 200,
       headers: {
         "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Origin":'https://jchasehuskey.github.io/meetup/'
+        "Access-Control-Allow-Origin":'https://jchasehuskey.github.io/'
         
       },
       body: JSON.stringify({ events: results.data.items })
@@ -146,7 +146,7 @@ module.exports.getCalenderEvents = event => {
       statusCode: 500,
       headers: {
         "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Origin":'https://jchasehuskey.github.io/meetup/'
+        "Access-Control-Allow-Origin":'https://jchasehuskey.github.io/'
         
       },
       body: JSON.stringify(err),
