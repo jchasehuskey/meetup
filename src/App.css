@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -49,9 +50,10 @@
 
 ul {
   display:flex;
+  flex-direction:column;
   padding: 0;
   list-style: none;
-  align-items: left;
+  /* align-items: left !important; */
 }
 
 p {
@@ -126,7 +128,7 @@ input[type="number"] {
   position: relative;
 }
 
-.details-btn {
+.details-button {
   position: absolute;
   right: 5px;
   bottom: 5px;

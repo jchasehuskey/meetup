@@ -14,7 +14,7 @@ class Event extends Component {
     const { collapsed } = this.state;
 
     return (
-      <div>
+      <div className="event">
         <h1 className='summary'>
           {event.summary}
         </h1>
