@@ -36,7 +36,7 @@ functions:
     events:
       - http:
           path: api/get-auth-url
-          method: get
+          method: get        
   getAccessToken:
     handler: handler.getAccessToken
     events:
@@ -105,3 +105,35 @@ functions:
 
 
 
+
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: A Lambda application that calls the Lambda API.
+Resources:
+  function:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs12.x
+      CodeUri: function/.
+      Description: Call the Lambda API
+      Timeout: 10
+      # Function's execution role
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - AWSLambda_ReadOnlyAccess
+        - AWSXrayWriteOnlyAccess
+      Tracing: Active
+      Layers:
+    
+  libs:
+    Type: AWS::Lambda::LayerVersion
+    Properties:
+      LayerName: test-laer
+      Description: Dependencies for the blank sample app.
+      Content:
+        S3Bucket: my-bucket-region-123456789012
+        S3Key: layer.zip
+      CompatibleRuntimes:
+        - nodejs12.x      
+    

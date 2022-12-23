@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "aws-xray-sdk": "^3.4.0",
     "axios": "^1.2.1",
     "coverage": "^0.4.1",
     "googleapis": "^109.0.1",
@@ -65,5 +66,19 @@
     "moduleNameMapper": {
       "axios": "axios/dist/node/axios.cjs"
     }
-  }
+  },
+  "description": "googleapi",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jchasehuskey/meetup.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jchasehuskey/meetup/issues"
+  },
+  "keywords": [
+    "googleapi"
+  ]
 }
